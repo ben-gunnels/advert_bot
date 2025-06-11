@@ -52,7 +52,7 @@ def get_attributes(text):
 
     raw = list(re.findall(r"\{(.*?)\}", text))
     for a in raw:
-        attributes.append([c.strip() for c in a.split(",")])
+        attributes.append([c.strip().lower() for c in a.split(",")])
 
     return attributes[:2] # Return only the first two items
 
