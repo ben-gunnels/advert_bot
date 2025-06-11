@@ -2,7 +2,6 @@ import re
 import shutil
 import time
 import datetime
-import os
 
 def remove_directory_recursively(path):
     """
@@ -50,7 +49,7 @@ def get_attributes(text):
     """
     raw = list(re.findall(r"\{(.*?)\}", text))
 
-    attributes = [c.strip().lower() for c in raw.split(",")]
+    attributes = [c.strip().lower() for c in raw]
 
     return attributes[:2] # Return only the first two items
 
