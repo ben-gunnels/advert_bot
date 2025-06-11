@@ -165,7 +165,6 @@ class EventHandler:
         """
         try:
             generated_prompt = self._generate_prompt()
-            self._select_model()
             generated_image = self._generate_image(generated_prompt)
 
             # Reformat the image to proper dimensions and specs
@@ -240,6 +239,9 @@ class EventHandler:
                 elif a in MODEL_ATTRIBUTES["shirt-color"]:
                     ordered_attributes[1] = a
             ordered_attributes = tuple(ordered_attributes) # Ordered attributes should be (sex, shirt-color)
+
+        # Generate the model file
+        self._select_model(ordered_attributes)
 
         # Make a call to OpenAi image generation model based on the prompt
         generated_image = edit_image(generated_prompt, self.input_filename, self.model_path)
