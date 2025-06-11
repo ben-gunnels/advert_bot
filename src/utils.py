@@ -48,11 +48,9 @@ def get_attributes(text):
         Returns a list of attributes that are used to select a model for the advertisement.
             e.g. ['female', 'white'] returns a female model wearing a white shirt. 
     """
-    attributes = []
-
     raw = list(re.findall(r"\{(.*?)\}", text))
-    for a in raw:
-        attributes.append([c.strip().lower() for c in a.split(",")])
+
+    attributes = [c.strip().lower() for c in raw.split(",")]
 
     return attributes[:2] # Return only the first two items
 
