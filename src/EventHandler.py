@@ -223,7 +223,7 @@ class EventHandler:
         model_path = f"/{s}/{c}"
 
         number_suitable_files = count_files_in_subfolder(MODELS_FOLDER_ID, model_path)['file_count']
-        endfile = f"{random.randrange(1, number_suitable_files)}.png" # Get the endfile path, all files are numbered
+        endfile = f"{random.randrange(1, number_suitable_files+1)}.png" # Get the endfile path, all files are numbered
 
         download_file_from_shared_folder(MODELS_FOLDER_ID, model_path+endfile, self.model_path)
     
