@@ -24,8 +24,8 @@ CHANNEL_MAP = {
 }
 
 MODEL_ATTRIBUTES = {
-    "sex": set(["male", "female"]),
-    "shirt-color": set(["white", "black", "red", "blue"])
+    "sex": set("male", "female"),
+    "shirt-color": set("white", "black", "red", "blue")
 }
 
 MODEL_FOLDER_DIRECTORY = {
