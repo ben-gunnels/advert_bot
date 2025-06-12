@@ -225,10 +225,9 @@ class EventHandler:
         number_suitable_files = count_files_in_subfolder(MODELS_FOLDER_ID, model_path)['file_count']
         endfile = f"{random.randrange(1, number_suitable_files+1)}.png" # Get the endfile path, all files are numbered
 
-
-
         res = download_file_from_shared_folder(MODELS_FOLDER_ID, model_path+endfile, self.model_path)
         print(res)
+        print(model_path+endfile)
     
     def _generate_image(self, generated_prompt):
         """
@@ -241,6 +240,7 @@ class EventHandler:
                     ordered_attributes[0] = a
                 elif a in MODEL_ATTRIBUTES["shirt-color"]:
                     ordered_attributes[1] = a
+            print(ordered_attributes)
             ordered_attributes = tuple(ordered_attributes) # Ordered attributes should be (sex, shirt-color)
 
         # Generate the model file
