@@ -97,6 +97,7 @@ class EventHandler:
 
         if self.attributes:
             self.attribute_params = get_attributes(self.text)
+            print(self.attribute_params)
 
         if self.files: # The user has submitted a file to be edited
             self._handle_files_shared()
@@ -236,11 +237,13 @@ class EventHandler:
         if self.attributes:
             ordered_attributes = ["", ""]
             for a in self.attribute_params:
+                print(a)
                 if a in MODEL_ATTRIBUTES["sex"]:
+                    print("sex happening")
                     ordered_attributes[0] = a
                 elif a in MODEL_ATTRIBUTES["shirt-color"]:
+                    print("shirt-color happening")
                     ordered_attributes[1] = a
-            print(ordered_attributes)
             ordered_attributes = tuple(ordered_attributes) # Ordered attributes should be (sex, shirt-color)
 
         # Generate the model file
