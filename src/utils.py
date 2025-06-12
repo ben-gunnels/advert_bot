@@ -49,7 +49,7 @@ def get_attributes(text):
     """
     raw = list(re.findall(r"\{(.*?)\}", text))
 
-    attributes = [c.strip().lower() for c in raw]
+    attributes = [c.strip().lower() for c in raw[0].split(",")]
 
     return attributes[:2] # Return only the first two items
 
