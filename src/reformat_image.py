@@ -5,7 +5,7 @@ import numpy as np
 
 from io import BytesIO
 
-def resize_image(image_bytes, new_size: tuple = (4320, 5400), crop_margin=6):
+def resize_image(image_bytes, new_size: tuple = (4200, 5400), crop_margin=6):
     # Suppose image_bytes contains your raw bytes (from base64 or download)
     image = Image.open(BytesIO(image_bytes))
     width, height = image.size
