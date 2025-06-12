@@ -227,8 +227,7 @@ class EventHandler:
         endfile = f"{random.randrange(1, number_suitable_files+1)}.png" # Get the endfile path, all files are numbered
 
         res = download_file_from_shared_folder(MODELS_FOLDER_ID, model_path+endfile, self.model_path)
-        print(res)
-        print(model_path+endfile)
+        print(f"Downloading Model from Dropbox: {res}")
     
     def _generate_image(self, generated_prompt):
         """
@@ -237,12 +236,9 @@ class EventHandler:
         if self.attributes:
             ordered_attributes = ["", ""]
             for a in self.attribute_params:
-                print(a)
                 if a in MODEL_ATTRIBUTES["sex"]:
-                    print("sex happening")
                     ordered_attributes[0] = a
                 elif a in MODEL_ATTRIBUTES["shirt-color"]:
-                    print("shirt-color happening")
                     ordered_attributes[1] = a
             ordered_attributes = tuple(ordered_attributes) # Ordered attributes should be (sex, shirt-color)
 
