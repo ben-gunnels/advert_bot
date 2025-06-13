@@ -233,17 +233,16 @@ class EventHandler:
         """
             Makes the call to generate the image. 
         """
+        ordered_attributes = ["", ""]
         if self.attributes:
-            ordered_attributes = ["", ""]
             for a in self.attribute_params:
                 if a in MODEL_ATTRIBUTES["sex"]:
                     ordered_attributes[0] = a
                 elif a in MODEL_ATTRIBUTES["shirt-color"]:
-                    ordered_attributes[1] = a
-            ordered_attributes = tuple(ordered_attributes) # Ordered attributes should be (sex, shirt-color)
+                    ordered_attributes[1] = a # Ordered attributes should be (sex, shirt-color)
 
         # Generate the model file
-        self._select_model(ordered_attributes)
+        self._select_model(tuple(ordered_attributes))
 
         # Make a call to OpenAi image generation model based on the prompt
         generated_image = edit_image(generated_prompt, self.input_filename, self.model_path)
